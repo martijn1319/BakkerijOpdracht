@@ -235,3 +235,57 @@ td {
   flex-direction: column;
 }
 
+@media (max-width: 800px) {
+  /* HOME ADJUSTMENTS */
+  .content-container {
+    flex-direction: column;
+  }
+
+  .content-row {
+    flex-direction: column;
+  }
+
+  .image {
+    width: 100%;
+    height: 400px;
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .about-container {
+    width: 100%;
+  }
+
+  .employee-cards {
+    flex-direction: column;
+  }
+
+  .employee-card {
+    width: 100%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .information {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  /* FOOTER ADJUSTMENTS */
+  .footer-navigation {
+    padding-top: 20px;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
