@@ -288,4 +288,40 @@ td {
     flex-direction: column-reverse;
     text-align: center;
   }
+
+  /* ABOUT ADJUSTMENTS */
+  .employee-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .employee-card {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .about-container {
+    width: 90%;
+    padding: 20px 0;
+  }
+
+  /* CONTACT ADJUSTMENTS */
+  .information {
+    width: 80%;
+    padding-left: 10px;
+    padding-bottom: 20px;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .info-item {
+    padding-bottom: 10px;
+  }
+
+  input {
+    width: 90%;
+  }
 }
