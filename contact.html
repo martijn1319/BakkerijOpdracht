@@ -93,14 +93,14 @@
     </div>
     <div class="contact-form">
         <form action="#" method="post" id="contact">
-            <label for="name">Naam</label><br>
-            <input type="text" id="name" name="name" required><br>
-            <label for="email">Email adres</label><br>
-            <input type="email" id="email" name="email" required><br>
-            <label for="phone">Telefoonnummer</label><br>
-            <input type="tel" id="phone" name="phone" required><br>
+            <label for="name">Naam</label><p class="notif" id="name-notif"></p><br>
+            <input type="text" id="name" name="naam" class="form-input"><br>
+            <label for="email">Email adres</label><p class="notif" id="email-notif"></p><br>
+            <input type="text" id="email" name="email" class="form-input"><br>
+            <label for="phone">Telefoonnummer</label><p class="notif" id="phone-notif"></p><br>
+            <input type="text" id="phone" name="telefoonnummer" class="form-input"><br>
             <label for="message">Bericht</label><br>
-            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <textarea id="message" name="message" rows="4"></textarea><br>
             <input type="submit" value="Verzenden">
         </form>
 
@@ -120,6 +120,39 @@
     </div>
   </div>
   </div>
+  <script>
+    const form = document.getElementById('contact');
+    const inputs = form.querySelectorAll('input');
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let error = false;
+      console.log(inputs.length)
+      inputs.forEach(input => {
+        if (input.type != "submit") {
+          console.log(input.id + '-notif');
+          if (!input.value) {
+            document.getElementById(input.id + '-notif').style.display = 'block';
+            document.getElementById(input.id + '-notif').innerHTML = "Vul uw " + input.name + " in!";
+            input.style.border = "1px solid red";
+            error = true
+          }
+          else {
+            document.getElementById(input.id + '-notif').style = null;
+            input.style = null;
+          }
+        }
+      });
+      if (error == true) {
+        return;
+      }
+
+      else {
+        alert('Bericht verzonden!')
+      }
+    });
+
+  </script>
   <script src="js/mobile-menu.js"></script>
 </body>
 </html>

@@ -245,6 +245,10 @@ td {
   height: 30px;
 }
 
+.notif {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .menu-icon {
     display: block;
