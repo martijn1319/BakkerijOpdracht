@@ -127,13 +127,24 @@
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       let error = false;
-      console.log(inputs.length)
       inputs.forEach(input => {
         if (input.type != "submit") {
-          console.log(input.id + '-notif');
-          if (!input.value) {
+          console.log(input.id)
+          let regex = null;
+          if (input.id == 'name') {
+            regex = /^[A-Za-zÀ-ÿ'’\-]+(?: [A-Za-zÀ-ÿ'’\-]+)*$/;
+          }
+
+          if (input.id == 'email') {
+            regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          }
+
+          if (input.id == 'phone') {
+            regex = /^(?:\+31|0031|0)(6\d{8}|[1-9]\d{1,2}\d{6})$/;
+          }
+          if (!input.value || regex.test(input.value) == false) {
             document.getElementById(input.id + '-notif').style.display = 'block';
-            document.getElementById(input.id + '-notif').innerHTML = "Vul uw " + input.name + " in!";
+            document.getElementById(input.id + '-notif').innerHTML = "Vul uw correcte " + input.name + " in!";
             input.style.border = "1px solid red";
             error = true
           }
@@ -143,12 +154,18 @@
           }
         }
       });
+
       if (error == true) {
         return;
       }
 
+      if (document.getElementById('message').value == '') {
+        alert('Vul een bericht in.');
+        return;
+      }
+
       else {
-        alert('Bericht verzonden!')
+        alert('Bericht verzonden!');
       }
     });
 
